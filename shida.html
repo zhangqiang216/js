@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		.warp
+		{
+			height: 397px;
+			width: 1200px;
+			/*border: 5px solid #000;*/
+			margin: 30px auto;
+			overflow: hidden;
+			position: relative;
+		}
+		.warp a
+		{
+			display: none;
+		}
+		.btn
+		{
+
+			width: 1002px;
+			height: 73px;
+			background:url("images/7.png");
+			position: absolute;
+			bottom: 0;
+			left: 99px;
+
+
+		}
+		.btn span
+		{
+			color: #fff;
+			float: left;
+			display: block;
+			width: 40px;
+			font-size: 50px;
+			color: white;
+			font-weight: bold;
+			text-align: center;
+			height: 73px;
+			line-height: 73px;
+			cursor: pointer;
+		}
+		.btn #nex
+		{
+			float: right;
+		}
+		.list
+		{
+			
+			width: 1000px;
+			height: 56px;
+			margin: 5px auto;
+
+		}
+		.list ul>li
+		{
+			display: block;
+			height: 55px;
+			width: 110px;
+			line-height: 55px;
+			float: left;
+			font-size: 15px;
+			font-weight: bold;
+			list-style: none;	
+	
+		}
+		.a ul
+		{
+			display: none;
+		}
+		.b
+		{
+			background-color: blue;
+		}
+		.b ul
+		{
+			display: block;
+
+		}
+
+
+		.A
+		{
+			
+			top: 55px;
+			
+			
+		}
+		.A>li{
+			position:relative;
+			bottom: 0px;
+			z-index: 999;
+			width: 145px;
+			height: 50px;
+			float: none;
+			list-style: none;
+			font-size: 12px;
+			background-color: blue;
+		}
+
+		
+
+
+
+		</style>
+		</head>
+<body>
+	<div>
+		<img src="images/22.png">
+	</div>
+	<div class="list">
+		<ul>
+			<li class="a">首页</li>
+			<li class="a">学校概况<img src="images/33.png">
+			<ul class="A">
+				<li>学校简介</li>
+				<li>学科专业</li>
+				<li>治理架构</li>
+				<li>历史沿革</li>
+				<li>学校标志</li>
+				<li>校园风光</li>
+				<li>校园地图</li>
+				
+			</ul>
+			</li>
+			<li class="a">机构设置<img class="i" src="images/33.png">
+			<ul class="A">
+				<li>教学单位</li>
+				<li>管理服务</li>
+				<li>附属单位</li>
+				<li>汇华学院</li>
+				
+				
+			</ul>
+			</li>
+			<li class="a">人才培养▽
+			<ul class="A">
+				<li>师资教育</li>
+				<li>本科生教育</li>
+				<li>研究生教育</li>
+				<li>继续教育</li>
+				<li>留学教育</li>
+				
+				
+			</ul>
+			</li>
+			<li class="a">科学研究<img src="images/33.png">
+			<ul class="A">
+				<li>科学研究平台</li>
+				<li>自然科学与技术</li>
+				<li>人文与社会科学/li>
+				<li>合作交流</li>
+				<li>学术期刊</li>
+				
+				
+			</ul>
+			</li>
+			<li class="a">招生就业<img src="images/33.png">
+			<ul class="A">
+				<li>本科生招生</li>
+				<li>研究生招生</li>
+				<li>继续教育招生</li>
+				<li>留学教育招生</li>
+				<li>就业服务</li>
+				
+				
+			</ul>
+			</li>
+			<li class="a">人才招聘<img src="images/33.png"></li>
+			<li class="a">公共服务<img src="images/33.png">
+			<ul class="A">
+				<li>本科生服务</li>
+				<li>研究生服务</li>
+				<li>行政事务服务</li>
+				<li>图书情报服务</li>
+				<li>预决算公开</li>
+				<li>生活服务</li>
+				<li>网络服务</li>
+			</ul>
+			</li>
+			<li class="a">校友会</li>
+			
+		</ul>
+	</div>
+
+	<div class="warp">
+		<a href="#" style="display: block;"><img src="images/1.jpg"></a>
+		<a href="#"><img src="images/2.jpg"></a>
+		<a href="#"><img src="images/3.jpg"></a>
+		<a href="#"><img src="images/4.jpg"></a>
+		<a href="#"><img src="images/5.jpg"></a>
+		<a href="#"><img src="images/6.jpg"></a>
+		<div class="btn">
+
+			<span id="pre"><</span>
+
+			<span id="nex">></span>
+		</div>
+
+		
+
+
+
+		
+	</div>
+	<script type="text/javascript">
+
+
+
+		window.onload = function(){
+			var liNodes = document.getElementsByClassName("a");
+			for (var i=0; i<liNodes.length; i++)
+			{
+				liNodes[i].onmouseover = function(){
+					this.className="b";
+					
+				}
+				liNodes[i].onmouseout = function(){
+					this.className="a";
+					
+				}
+			}
+		}
+		
+
+		//图片部分
+		var box=document.getElementsByClassName('warp')[0];
+		var links=box.children;
+		var i=0;
+		var prev=document.getElementById("pre");
+		var next=document.getElementById("nex");
+		next.onclick=function(){
+			imgchance();
+		}
+		prev.onclick=function(){
+			imgchance2();
+		}
+
+		function imgchance(){
+			links[i%6].style.display='none';
+			i++;
+			links[i%6].style.display='block';
+
+		}
+		function imgchance2(){
+			links[i%6].style.display='none';
+			i--;
+			if(i<0)
+			{
+				i=6;
+			}
+			links[i%6].style.display='block';
+
+		}
+
+		var timer=setInterval(imgchance,2000);
+		box.onmouseover=function(){
+			clearInterval(timer);
+
+		};
+		box.onmouseout=function()
+		{
+			timer=setInterval(imgchance,2000)//实参imgchace在函数中调用，如果写imgchance(),执行一次后会成为一个值undefined（返回值），报错;；如a(b).a,b都是函数
+		}
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+	</script>
+
+</body>
+</html>
