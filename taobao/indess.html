@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		#wrap{
+			border: 1px solid black;
+			width:400px;
+			height: 300px;
+			margin:50px auto;
+		}
+		#wrap p{
+			background-color: lightblue;
+			position: relative;
+			top:-15px;
+		}
+		#wrap #text{
+			width: 300px;
+			height: 150px;
+			position: relative;
+			left: 50px;
+			top: 10px;
+		}
+		#wrap span{
+			float: right;
+			position: relative;
+			top:200px;
+			border: 1px solid gray;
+		}
+		#stars{
+			position: relative;
+			left: 20px;
+		}
+
+	</style>
+</head>
+
+<body>
+	<div id="wrap">
+		<p>宝贝与描述相符(打分匿名)</p>
+		<div id="stars">
+			<img src="images/star0.png" name="1">
+			<img src="images/star0.png" name="2">
+			<img src="images/star0.png" name="3">
+			<img src="images/star0.png" name="4">
+			<img src="images/star0.png" name="5">
+		</div>
+		<textarea id="text"></textarea>
+		<span>公开评论<img src="images/sanjiao.png"></span>
+	</div>
+
+</body>
+<script type="text/javascript">
+	var con=false;
+	var arr=document.getElementsByTagName('img');
+	var arrt=['1星','2星','3星','4星','5星'];
+	var text=document.getElementById('text');
+	function qd(){
+		con=true;
+	}
+	function light(){
+
+	}
+	function hide(){
+		if(con==false)
+		{
+			for(var i=0;i<5;++i){
+				arr[i].src="images/star0.png";
+			}
+			text.innerHTML="";
+		}
+
+	}
+	for(var i=0;i<5;++i){
+		arr[i].onmouseover=function(){
+			if(con==false){
+				if(this.name<=2)
+				{
+					for(var i=0;i<this.name;++i){
+						arr[i].src="images/star1.png";
+					}
+					text.innerHTML=arrt[this.name-1];
+				}
+				else{
+					for(var i=0;i<this.name;++i){
+						arr[i].src="images/star2.png";
+					}
+					text.innerHTML=arrt[this.name-1];
+				}
+			}
+		}
+		arr[i].onmouseout=hide;
+		arr[i].onclick=qd;
+	}
+</script>
+</html>

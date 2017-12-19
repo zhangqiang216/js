@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+	*{
+		margin: 0px;
+		padding: 0px;
+		border: white 0px;
+		position: relative;
+
+	}
+	.W
+	{
+		margin-left: 2px;
+	}
+
+	.A
+	{
+		width: 458px;
+		height: 241px;
+	}
+	.B
+	{
+		width: 458px;
+		height: 30px;
+		background-image: url(images/bg2.png);
+	}
+	.C
+	{
+		height: 30px;
+		width: 458px;
+	}
+	.C>div
+	{
+		float: left;
+		height: 19px;
+		margin-right: 5px;
+	}
+	.C2
+	{
+		height: 30px;
+		width: 458px;
+		display: none;
+
+	}
+	.D
+	{
+		width: 458px;
+		height: 200px;
+		border: gray solid 2px;
+	}
+	.D>div
+	{
+		margin: 10px;
+
+
+	}
+	textarea
+	{
+		border-color: #fff;
+
+	}
+	.e
+	{
+		width: 76px;
+		height: 22px;
+		position: absolute;
+		right: 0px;
+		border: gray solid 1px;
+		margin-top:2px;
+
+	}
+	strong
+	{
+		color: red;
+	}
+	</style>
+</head>
+<body>
+	<div class="W">
+		<div class="B"><p>宝贝与描述相符(打分匿名)</p></div>
+		<div class="A">
+			<div class="C">
+				<div><img src="images/star0.png" name="0"></div>
+				<div><img src="images/star0.png" name="1"></div>
+				<div><img src="images/star0.png" name="2"></div>
+				<div><img src="images/star0.png" name="3"></div>
+				<div><img src="images/star0.png" name="4"></div>
+				
+			</div>
+			<div class="C2">
+				
+			</div>
+			<div class="D">
+				<div>
+					<div><span style="width: 400px;height: 0"></span></div>
+
+					<div><textarea style="height: 150px;width: 434px;"></textarea></div>
+					<div><p style="height: 18px;">还可以输入<strong>500</strong>字</p></div>
+				</div>
+				
+			</div>
+			<div class="e">公开评论<img src="images/sanjiao.png"></div>
+		</div>
+		
+	</div>
+
+</body>
+<script type="text/javascript">
+var arr=['很不满意','不满意','一般','满意','很满意'];
+var star=document.getElementsByTagName('img');
+var text=document.getElementsByTagName('textarea')[0];
+var D=0;
+
+
+
+
+
+function hide()
+{
+
+		if(D==0)
+		{
+			for(var i=0;i<5;i++)
+			{
+				star[i].src="images/star0.png";
+			}
+			text.value="";
+			
+		}
+	
+}
+function qd()
+{
+	D=1;
+	for(var i=0;i<5;i++)
+	{
+		star[i].onclick=function()
+		{
+
+			if(this.name<2)
+			{
+				for(var j=0;j<=this.name;j++){
+						star[j].src="images/star1.png";
+					}
+					text.innerHTML=arr[this.name-0];
+
+			}
+			else
+			{
+				for(var m=0;m<=this.name;m++){
+						star[m].src="images/star2.png";
+					}
+					text.innerHTML=arr[this.name-0];
+
+			}
+		}
+	}
+	for(var i=0;i<5;i++)
+	{
+		star[i].onmouseover=S;
+		star[i].onclick=S;
+		star[i].onmouseout=S;
+
+	}
+	
+
+}
+function S()
+{
+
+}
+console.log(arr[1]);
+function starPic()
+{
+
+	if(D==1)
+	{
+		return;
+	}
+	for(var i=0;i<5;i++)
+	{
+		star[i].onmouseover=function()
+		{
+			if(this.name<2)
+			{
+				for(var j=0;j<=this.name;j++){
+						star[j].src="images/star1.png";
+					}
+					text.value=arr[this.name-0];
+			}
+			else
+			{
+				for(var m=0;m<=this.name;m++){
+						star[m].src="images/star2.png";
+					}
+					text.value=arr[this.name-0];
+
+			}
+		}
+	}
+
+}
+for(var i=0;i<5;i++)
+{
+		star[i].onmouseover=starPic;
+		star[i].onclick=qd;
+		star[i].onmouseout=hide;
+
+}
+
+
+
+
+/*function qd()
+{
+		D=1;
+
+}*/
+/*for(var i=0;i<5;i++)
+{
+	star[i].onmouseover=starPic;
+	star[i].onclick=qd;
+	star[i].onmouseout=hide;
+	
+
+}*/
+/*if(D==0)
+		{
+			star[0].onmouseover=function(){
+				star[0].src="images/star1.png";
+				text.value=arr[0];
+
+			}
+			star[1].onmouseover=function(){
+				star[0].src="images/star1.png";
+				star[1].src="images/star1.png";
+				text.value=arr[1];
+
+
+			}
+			star[2].onmouseover=function(){
+				star[0].src="images/star2.png";
+				star[1].src="images/star2.png";
+				star[2].src="images/star2.png";
+				text.value=arr[2];
+				
+
+			}
+			star[3].onmouseover=function(){
+				star[0].src="images/star2.png";
+				star[1].src="images/star2.png";
+				star[2].src="images/star2.png";
+				star[3].src="images/star2.png";
+				text.value=arr[3];
+
+			}
+			star[4].onmouseover=function(){
+				star[0].src="images/star2.png";
+				star[1].src="images/star2.png";
+				star[2].src="images/star2.png";
+				star[3].src="images/star2.png";
+				star[4].src="images/star2.png";
+				text.value=arr[4];
+			}
+			
+		}*/
+
+
+
+
+
+
+
+
+
+	
+</script>
+</html>
